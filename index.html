@@ -1,92 +1,148 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <style>
-      body,
-      html {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        font-size: 14px;
-        background-color: #f5f5f5;
-        color: #333;
-        height: 100%;
-        width: 100%;
-      }
-      .container {
-        padding: 8px;
-        gap: 8px;
-        position: relative;
-        flex: 1 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        box-sizing: border-box;
-      }
-      .classic-app {
-        height: 800px;
-        width: 1200px;
-        border: 1px solid #bbb;
-        flex-grow: 1;
-        border-radius: 3px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-        position: relative;
-        box-sizing: border-box;
-        overflow: auto;
-        position: relative;
-      }
-      .viz {
-        width: 600px;
-        height: 600px;
-        padding: 16px;
-        border: 1px solid #bbb;
-        border-radius: 3px;
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-        position:relative;
-      }
-    </style>
-    <title>@qlik/embed-web-components example</title>
-    <script
-        crossorigin="anonymous"
-        type="application/javascript"
-        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
-        data-host="k8cbszo2oiu6a23.sg.qlikcloud.com"
-        data-client-id="7def58be7ffee29068fe2653dccd600e"
-        data-redirect-uri="https://hrarmy.in/oauth-callback.html"
-        data-access-token-storage="session"
-    ></script>
-  </head>
-  <body>
-    <div id="main-app">
-      <div class="container">
-        <h1>@qlik/embed-web-components quickstart example</h1>
-        <h2>For a step-by-step tutorial <a href="https://qlik.dev/embed/qlik-embed/quickstart/qlik-embed-webcomponent-quickstart/" target="_blank" rel="noopener noreferrer">click here</a>.</h2>
-        <h2>Make sure to configure the html files to point to your Qlik Cloud tenant.</h2>
-      </div>
-      <div id="analytics-chart" class="container">
-      <h2>qlik-embed analytics/chart embeds a chart in the page.</h2>
-      <h3><i>Renders only nebula.js visualizations.</i></h3>
-      <div class="viz">
-        <qlik-embed
-          id="visualization"
-          ui="analytics/chart"
-          app-id="3a6f9acf-bd8d-4407-b00f-97cc4bd07809"
-          object-id="mgyBmvj"
-        ></qlik-embed>
-      </div>
-      <div id="classic-app" class="container">
-        <h2>qlik-embed classic/app embeds the full Qlik Sense client in the page.</h2>
-        <div class="classic-app">
-          <qlik-embed
-            ui="classic/app"
-            app-id="3a6f9acf-bd8d-4407-b00f-97cc4bd07809"
-            sheet-id="269fed80-c9c4-4616-98f6-d124ff24614b"
-          ></qlik-embed>
-        </div>
-      </div>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="sheet" style="height:800px;">
+
     </div>
-  </body>
+
+    <script>
+
+        //    CONFIGURATION
+
+        const TENANT = 'k8cbszo2oiu6a23.sg.qlikcloud.com';
+        const WEBINTEGRATIONID = 'KH5sEY6TLaRdzLS90Pq_wMaLiNKU0iNd';
+        const APPID = '3a6f9acf-bd8d-4407-b00f-97cc4bd07809';
+        const SHEETID = '269fed80-c9c4-4616-98f6-d124ff24614b';
+        const IDENTITY = 'vivek15402';
+
+        //    DEFAULT PLACEMENT CONFIGURATION
+
+        const qlikDivSelector = '#sheet';
+        const qlikObjectClass = 'qlikObject';
+
+        //    MAIN
+
+        (async function main() {
+            const isLoggedIn = await qlikLogin();
+            const loadedCapabilitiesAssets = await loadCapabilitiesAssets();
+            const app = await doCapabilities(APPID, qlikDivSelector, qlikObjectClass);
+        })();
+
+        //    LOGIN
+
+        async function qlikLogin() {
+            const loggedIn = await fetch(`https://${TENANT}/api/v1/users/me`, {
+                mode: 'cors',
+                credentials: 'include',
+                headers: {
+                    'qlik-web-integration-id': WEBINTEGRATIONID,
+                },
+            })
+            if (loggedIn.status !== 200) {
+                if (sessionStorage.getItem('tryQlikAuth') === null) {
+                    sessionStorage.setItem('tryQlikAuth', 1);
+                    window.location = `https://${TENANT}/login?qlik-web-integration-id=${WEBINTEGRATIONID}&returnto=${location.href}`;
+                    return await new Promise(resolve => setTimeout(resolve, 10000)); // prevents further code execution
+                } else {
+                    sessionStorage.removeItem('tryQlikAuth');
+                    const message = 'Third-party cookies are not enabled in your browser settings and/or browser mode.';
+                    alert(message);
+                    throw new Error(message);
+                }
+            }
+            sessionStorage.removeItem('tryQlikAuth');
+            console.log('Logged in!');
+            return true;
+        }
+
+        // CREATE GRID
+
+        function createGrid(querySelector, columns, rows) {
+            const gridContainer = document.querySelector(querySelector);
+            gridContainer.style.display = 'grid';
+            gridContainer.style.gridTemplateRows = `repeat(${rows}, minmax(0, 1fr)`;
+            gridContainer.style.gridTemplateColumns = `repeat(${columns}, minmax(0, 1fr))`;
+
+            return gridContainer;
+        }
+
+        // CONSTRUCT SHEET
+
+        function constructSheet(sheetLayout, querySelector, addClass) {
+            const gridContainer = createGrid(querySelector, sheetLayout.columns, sheetLayout.rows);
+            (sheetLayout.cells).forEach(function (object) {
+                const objectId = object.name;
+                const colStart = object.col + 1;
+                const rowStart = object.row + 1;
+                const colSpan = object.colspan;
+                const rowSpan = object.rowspan;
+                const objectDiv = document.createElement('div');
+                objectDiv.id = objectId;
+                objectDiv.style["grid-column"] = `${colStart} / span ${colSpan}`;
+                objectDiv.style["grid-row"] = `${rowStart} / span ${rowSpan}`;
+                objectDiv.style.border = '2px solid #0000';
+                objectDiv.style.margin = '5px';
+                objectDiv.classList.add(addClass);
+                gridContainer.appendChild(objectDiv);
+            })
+            return true;
+        }
+
+        // LOAD & RENDER CAPABILITIES
+
+
+        async function loadCapabilitiesAssets() {
+            const cssUrl = `https://${TENANT}/resources/autogenerated/qlik-styles.css`;
+            const requireUrl = `https://${TENANT}/resources/assets/external/requirejs/require.js`;
+            return $.when(
+                $('head').append(`<link rel="stylesheet" type="text/css" href="${cssUrl}">`),
+                $.getScript(requireUrl)
+            );
+        }
+
+        async function doCapabilities(appId, qlikDivSelector, objectClass) {
+            var config = {
+                host: TENANT,
+                prefix: "/",
+                port: 443,
+                isSecure: true,
+                webIntegrationId: WEBINTEGRATIONID,
+                identity: IDENTITY
+            };
+
+            require.config({
+                config: {
+                    text: { useXhr: function (url, protocol, hostname, port) { return true; } }
+                },
+                baseUrl: 'https://' + config.host + (config.port ? ':' + config.port : '') + config.prefix + 'resources',
+                webIntegrationId: WEBINTEGRATIONID
+            });
+
+            requirejs(["js/qlik"], (qlik) => {
+                const app = qlik.openApp(appId, config);
+                const sheetObject = app.getObject(SHEETID)
+                    .then((sheetObject) => {
+                        const sheetLayout = sheetObject.getLayout()
+                            .then((sheetLayout) => {
+                                constructSheet(sheetLayout, qlikDivSelector, objectClass);
+                                $(`.${objectClass}`).each(function () {
+                                    var chartId = $(this).attr("id");
+                                    app.getObject(this, chartId);
+                                });
+                            })
+                    })
+            })
+        }
+
+
+    </script>
+
+</body>
+
 </html>
