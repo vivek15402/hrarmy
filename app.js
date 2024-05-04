@@ -1,5 +1,5 @@
 (async () => {
-    const tenantUri = 'https://k8cbszo2oiu6a23.sg.qlikcloud.com/';
+    const tenantUri = 'https://k8cbszo2oiu6a23.sg.qlikcloud.com';
     const webIntegrationId = 'KH5sEY6TLaRdzLS90Pq_wMaLiNKU0iNd';
     const titleElement = document.getElementById('title');
   
