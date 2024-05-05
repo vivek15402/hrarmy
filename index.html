@@ -1,10 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<meta charset="utf-8" />
-<title>Simple web app</title>
-<div id="intro">Loading...</div>
-<div id="title">Loading...</div>
-<script src="https://unpkg.com/enigma.js@2.7.0/enigma.min.js"></script>
-<script src="app.js"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 14px;
+        background-color: #f5f5f5;
+        color: #333;
+        height: 100%;
+        width: 100%;
+      }
+      .container {
+        padding: 8px;
+        gap: 8px;
+        position: relative;
+        flex: 1 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        box-sizing: border-box;
+      }
+      .classic-app {
+        height: 800px;
+        width: 1200px;
+        border: 1px solid #bbb;
+        flex-grow: 1;
+        border-radius: 3px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        box-sizing: border-box;
+        overflow: auto;
+        position: relative;
+      }
+      .viz {
+        width: 600px;
+        height: 600px;
+        padding: 16px;
+        border: 1px solid #bbb;
+        border-radius: 3px;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+        position:relative;
+      }
+    </style>
+    <title>@qlik/embed-web-components example</title>
+    <script
+        crossorigin="anonymous"
+        type="application/javascript"
+        src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
+        data-host="https://k8cbszo2oiu6a23.sg.qlikcloud.com"
+        data-client-id="KH5sEY6TLaRdzLS90Pq_wMaLiNKU0iNd"
+        data-redirect-uri="https://hrarmy.in/oauth-callback.html"
+        data-access-token-storage="session"
+    ></script>
+  </head>
+  <body>
+    <div id="main-app">
+      <div class="container">
+        <h1>@qlik/embed-web-components quickstart example</h1>
+        <h2>For a step-by-step tutorial <a href="https://qlik.dev/embed/qlik-embed/quickstart/qlik-embed-webcomponent-quickstart/" target="_blank" rel="noopener noreferrer">click here</a>.</h2>
+        <h2>Make sure to configure the html files to point to your Qlik Cloud tenant.</h2>
+      </div>
+      <div id="analytics-chart" class="container">
+      <h2>qlik-embed analytics/chart embeds a chart in the page.</h2>
+      <h3><i>Renders only nebula.js visualizations.</i></h3>
+      <div class="viz">
+        <qlik-embed
+          id="visualization"
+          ui="analytics/chart"
+          app-id="3aa06a97-85f7-49de-89e8-4f2d69574aff"
+          object-id="kRtwV"
+        ></qlik-embed>
+      </div>
+      <div id="classic-app" class="container">
+        <h2>qlik-embed classic/app embeds the full Qlik Sense client in the page.</h2>
+        <div class="classic-app">
+          <qlik-embed
+            ui="classic/app"
+            app-id="3aa06a97-85f7-49de-89e8-4f2d69574aff"
+            sheet-id="mMTfnW"
+          ></qlik-embed>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
