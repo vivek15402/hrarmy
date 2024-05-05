@@ -49,7 +49,7 @@
       }
     </style>
     <title>@qlik/embed-web-components example</title>
-    <script
+    <!-- <script
         crossorigin="anonymous"
         type="application/javascript"
         src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
@@ -57,6 +57,14 @@
         data-client-id="7def58be7ffee29068fe2653dccd600e"
         data-redirect-uri="https://hrarmy.in/oauth-callback.html"
         data-access-token-storage="session"
+    ></script> -->
+    <script
+      crossorigin="anonymous"
+      type="application/javascript"
+      src="https://cdn.jsdelivr.net/npm/@qlik/embed-web-components"
+      data-host="https://data.mysportsanalysis.com"
+      data-login-uri="https://data.mysportsanalysis.com/oms"
+      data-cross-site-cookies="true"
     ></script>
   </head>
   <body>
@@ -73,19 +81,9 @@
         <qlik-embed
           id="visualization"
           ui="analytics/chart"
-          app-id="3aa06a97-85f7-49de-89e8-4f2d69574aff"
-          object-id="kRtwV"
+          app-id="9e421098-d0a5-4330-8cf6-b7f0cbbf3664"
+          object-id="dnxSEQe"
         ></qlik-embed>
-      </div>
-      <div id="classic-app" class="container">
-        <h2>qlik-embed classic/app embeds the full Qlik Sense client in the page.</h2>
-        <div class="classic-app">
-          <qlik-embed
-            ui="classic/app"
-            app-id="3aa06a97-85f7-49de-89e8-4f2d69574aff"
-            sheet-id="mMTfnW"
-          ></qlik-embed>
-        </div>
       </div>
     </div>
   </body>
