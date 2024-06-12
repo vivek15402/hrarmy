@@ -299,14 +299,16 @@ function tabbedContainer(ContainerID) {
 var app;
 var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/extensions") + 1);
 var config = {
-	host: window.location.hostname,
-	prefix: prefix,
-	port: window.location.port,
-	isSecure: window.location.protocol === "https:"
+    host: 'e2arsd9duxwosuu.uk.qlikcloud.com', //for example, 'abc.us.example.com'
+    prefix: '/',
+    port: 443,
+    isSecure: true,
+    webIntegrationId: 'xBCs85GiQVfXi8eC3Bv6f2OuDzI4IXV2'
 };
-require.config({
-	baseUrl: (config.isSecure ? "https://" : "http://") + config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources"
-});
+require.config( {
+    baseUrl: ( config.isSecure ? "https://" : "http://" ) + config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources",
+    webIntegrationId: config.webIntegrationId
+} );
 
 require(["js/qlik"], function (qlik) {
 	qlik.on("error", function (error) {
@@ -324,7 +326,7 @@ require(["js/qlik"], function (qlik) {
 
 	// $('.ripple-container').show()
 
-	app = qlik.openApp('Vivek_WRR_Desktop_helvert_Optimized_Reduced.qvf', config);
+	app = qlik.openApp('0c725b7d-d22a-431f-93a5-cd6590bc51b5', config);
 	qlik.theme.apply('VS_Theme');
 
 	clear_All()
