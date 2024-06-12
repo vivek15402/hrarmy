@@ -103,10 +103,12 @@ $.get("./assets/components/loader.txt", function (content) {
 
 $.get("./assets/components/sheet-menu.txt", function (content) {
     $(content).appendTo("div.sheet-menu-view");
-    var currentPage = window.location.href.split('/Race-Insight/')[1].split('.')[0];
-
+    // var currentPage = window.location.href.split('/Race-Insight/')[1].split('.')[0];
+    var currentPage = window.location.href
+    // console.log(currentPage);
     $('.top-menu-element_label').each(function () {
-        if (currentPage.includes($(this).attr('href').split('/')[1].split('.')[0])) {
+        // console.log($(this).attr('href').split('/')[1])
+        if (currentPage.includes($(this).attr('href').split('/')[1])) {
             $(this).toggleClass('top_menu_element_active');
         } else {
             $(this).removeClass('top_menu_element_active');
