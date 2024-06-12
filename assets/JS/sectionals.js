@@ -8,7 +8,7 @@ app.getObject('vs_sectional_dim_dropdown', 'EDBnmP');
 
 function vs_sectionals_cont1_tab1() {
 	show_race_sectional_Charts('vs_duration_sectional', 'fc6c3f72-9f78-4acf-8741-8e162307b6ff')
-	app.getObject('vs_duration_sectional_tab', 'sSbuaL')
+	app.getObject('vs_duration_sectional_tab', 'CfNL')
 }
 
 function vs_sectionals_cont1_tab2() {
