@@ -69,7 +69,7 @@ $("#vs_team_second_btn").on("click", function () {
 });
 
 
-$.get("./Assets/components/expand_collapse_btn.txt", function (content) {
+$.get("./assets/components/expand_collapse_btn.txt", function (content) {
     // Append the content to div.vs_row
     $('.row_toggle').remove()
     $(content).appendTo("div.row_header");
@@ -97,11 +97,11 @@ $.get("./Assets/components/expand_collapse_btn.txt", function (content) {
     });
 });
 
-$.get("./Assets/components/loader.txt", function (content) {
+$.get("./assets/components/loader.txt", function (content) {
     $(content).appendTo("div.qv_object_container");
 });
 
-$.get("./Assets/components/sheet-menu.txt", function (content) {
+$.get("./assets/components/sheet-menu.txt", function (content) {
     $(content).appendTo("div.sheet-menu-view");
     var currentPage = window.location.href.split('/Race-Insight/')[1].split('.')[0];
 
