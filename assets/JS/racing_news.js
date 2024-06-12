@@ -7,7 +7,7 @@ function fetchDataAndUpdateUI() {
         const storedDataParsed = JSON.parse(storedData);
         updateUI(storedDataParsed, 'vs_racing_cards_container');
 
-        fetch('https://images.mysportsanalysis.com/racing_stories/latest_min.json')
+        fetch('assets/latest_min.json')
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('newsData', JSON.stringify(data));
@@ -18,7 +18,7 @@ function fetchDataAndUpdateUI() {
             });
 
     } else {
-        fetch('https://images.mysportsanalysis.com/racing_stories/latest_min.json')
+        fetch('assets/latest_min.json')
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('newsData', JSON.stringify(data));
@@ -81,7 +81,7 @@ $('.vs_content').on('click', '.vs_racing_news_details', function () {
 
     let data_index = $(this).attr('news_no')
 
-    let news_article_data = JSON.parse(storedData).item[data_index]
+    let news_article_data = JSON.parse(localStorage.getItem('newsData')).item[data_index]
     // console.log(news_article_data);
     // updateUI(storedData[data_index], 'vs_racing_card_container')
     $(`.vs_racing_card_container`).empty()
