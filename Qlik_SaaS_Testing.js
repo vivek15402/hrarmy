@@ -30,7 +30,11 @@ require( ["js/qlik"], function ( qlik ) {
 	//callbacks -- inserted here --
 	//open apps -- inserted here --
 	app = qlik.openApp('eca3835b-f5f2-4e04-9061-d2e5476eeae7', config);
+	
 	//get objects -- inserted here --
+
+	app.getObject('QV01','zHuYjb')
+
 	//create cubes and lists -- inserted here --
 
 } );
