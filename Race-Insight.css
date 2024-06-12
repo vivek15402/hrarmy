@@ -1,0 +1,1801 @@
+:root {
+	--font-family: 'roboto', sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family) !important;
+	background-color: #f2f2f2;
+}
+
+.main_container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.vs_content {
+	overflow-y: auto;
+	flex: 1;
+}
+
+.qvplaceholder,
+.qvobject {
+	flex: 1 1 auto;
+	margin: 10px;
+	height: 500px;
+}
+
+#popup {
+	background-color: #c3534b;
+	color: #FFFFFF;
+	position: fixed;
+	max-width: 250px;
+	padding: 10px;
+	margin: 10px;
+	bottom: 0;
+	right: 0;
+	display: none;
+	border-radius: 8px;
+	z-index: 6;
+	font-family: sans-serif;
+}
+
+.close {
+	cursor: pointer;
+	background: 0 0;
+	border: 0;
+	float: right;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+	position: absolute;
+	right: 9px;
+	top: 7px;
+}
+
+.close:hover {
+	opacity: .5;
+}
+
+#popupText {
+	margin-right: 23px;
+}
+
+/* Custom CSS Start */
+.sheet-menu-container {
+	height: 70px;
+	/* background: #2D3748; */
+	background: #13294b;
+	width: 100%;
+	display: flex;
+	white-space: nowrap;
+	color: white;
+	user-select: none;
+	align-items: center;
+	top: 0;
+	position: sticky;
+	z-index: 99;
+}
+
+.sheet-menu-view {
+	/* z-index: 1000;
+	display: flex;
+	align-items: center; */
+
+	display: flex;
+	z-index: 1000;
+	/* align-items: center; */
+	flex-direction: column;
+	background: #13294b;
+	position: fixed;
+	top: 70px;
+	left: 0;
+	width: 240px;
+	height: 100%;
+	padding: 15px 0;
+	border-top: 1px dotted #5f6e86;
+	box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.49);
+	transition: left 400ms ease-in-out;
+	overflow: hidden;
+}
+
+.sheet_menu_visible {
+	position: sticky;
+	left: 240px;
+	width: calc(100% - 240px);
+	top: 70px;
+	transition: width 400ms ease-in-out;
+}
+
+#sheet_menu_slide_btn,
+#sheet_menu_slide_btn_mobile {
+	background: #5f6e86;
+	border: none;
+	cursor: pointer;
+	/* position: fixed; */
+	top: 0;
+	left: 0;
+	height: 70px;
+	width: 70px;
+}
+
+#sheet_menu_slide_btn_mobile {
+	display: none;
+}
+
+.visible {
+	left: -102%;
+}
+
+.top-menu-element {
+	display: flex;
+	/* max-width: 200px; */
+	border-radius: 0.375rem;
+	margin-left: 1rem;
+	cursor: pointer;
+	position: relative;
+	height: 60px;
+
+}
+
+.top-menu-element_label:hover {
+	background: #5f6e86;
+}
+
+.top-menu-element_label:hover {
+	background: #5f6e86;
+}
+
+.top-menu-element_label:hover::before {
+	content: '';
+	/* Ensure content is set for pseudo-elements */
+	position: absolute;
+	top: -20px;
+	right: 0;
+	border-bottom-right-radius: 20px;
+	box-shadow: 7.5px 7.5px 0 7.5px #5f6e86;
+	width: 20px;
+	/* Set width and height for the pseudo-element */
+	height: 20px;
+}
+
+.top-menu-element_label:hover::after {
+	content: '';
+	/* Ensure content is set for pseudo-elements */
+	position: absolute;
+	bottom: -20px;
+	right: 0;
+	border-top-right-radius: 20px;
+	box-shadow: 7.5px -7.5px 0 7.5px #5f6e86;
+	width: 20px;
+	/* Set width and height for the pseudo-element */
+	height: 20px;
+}
+
+.top_menu_element_active {
+	background-color: #22813b;
+	pointer-events: none;
+}
+
+.top_menu_element_active::before {
+	content: '';
+	/* Ensure content is set for pseudo-elements */
+	position: absolute;
+	top: -20px;
+	right: 0;
+	border-bottom-right-radius: 20px;
+	box-shadow: 7.5px 7.5px 0 7.5px #22813b;
+	width: 20px;
+	/* Set width and height for the pseudo-element */
+	height: 20px;
+}
+
+.top_menu_element_active::after {
+	content: '';
+	/* Ensure content is set for pseudo-elements */
+	position: absolute;
+	bottom: -20px;
+	right: 0;
+	border-top-right-radius: 20px;
+	box-shadow: 7.5px -7.5px 0 7.5px #22813b;
+	width: 20px;
+	/* Set width and height for the pseudo-element */
+	height: 20px;
+}
+
+.top-menu-element_label,
+.submenu-element_label,
+.childmenu-element_label {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	text-align: left;
+	padding: 6px;
+	position: relative;
+	text-decoration: none;
+	color: inherit;
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+}
+
+.top-menu-element_label-truncate,
+.submenu-element_label-truncate,
+.childmenu-element_label-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: .9rem;
+	font-weight: 500;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+#logo {
+	/* max-width: 100%; */
+	max-height: 50px;
+	border-radius: 2px;
+	filter: invert(100%);
+	margin-left: 20px;
+}
+
+#filter_sidebar_btn {
+	background: #5f6e86;
+	border: none;
+	cursor: pointer;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 70px;
+	width: 70px;
+}
+
+#filter_sidebar_btn svg {
+	color: white;
+}
+
+#sheet_menu_slide_btn svg,
+#sheet_menu_slide_btn_mobile svg {
+	color: white;
+}
+
+.VS-sidebar-outer-container {
+	position: fixed;
+	border: 1px solid #ccc;
+	z-index: 1000;
+	box-shadow: -9px 0 15px -9px rgba(0, 0, 0, 0.49);
+	top: 70px;
+	bottom: 0;
+	right: -300px;
+	/* right: 0px; */
+	width: 258px;
+	height: 100%;
+	background: #f8f8f8;
+	box-sizing: border-box;
+	transition: right 400ms ease-in-out;
+}
+
+.vs_sidebar_show {
+	right: 0;
+}
+
+.svg_hide,
+.feather-x-square,
+.feather-menu,
+.feather-x-square_mobile {
+	display: none;
+}
+
+.svg_show {
+	display: inline-block;
+}
+
+.VS-sidebar-inner-container {
+	height: 100%;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.row_header {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	justify-content: space-between;
+	user-select: none;
+}
+
+.row_toggle {
+	margin: 5px;
+	height: 30px;
+}
+
+.imaximize {
+	display: none;
+}
+
+.maximize {
+	height: 40px;
+}
+
+#reset_selections_btn {
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	background: #000;
+	color: white;
+	font-size: 17px;
+	width: 100%;
+	font-family: var(--font-family) !important;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+}
+
+#VS_sidebar_item {
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	height: 315px;
+}
+
+#VS_SideBar_Filters {
+	height: 280px;
+}
+
+#VS_QS_Filters {
+	height: 40px;
+	margin: 0 10px;
+	border: none;
+	box-shadow: none;
+	padding-bottom: 0;
+}
+
+#R1H3C1 {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+#R1H3C2 {
+	/* box-sizing: border-box; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+#R1H3C1,
+#R1H3C2 {
+	height: 600px;
+}
+
+#VS_Handicap_Stat_Model {
+	height: 630px;
+}
+
+#VS_Handicap_AVG_Tab {
+	height: 220px;
+}
+
+#VS_Handicap_Perf_Model {
+	height: 150px;
+}
+
+.CurrentSelections {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	border-bottom: 1px dashed #999;
+}
+
+.selection_bar_btns {
+	display: flex;
+}
+
+.sel_btn_items {
+	padding: 6px;
+	margin: 0 2px;
+	border: none;
+	background: #ff6a3c;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#sel_back {
+	background: #404040;
+}
+
+#CurrentSelections {
+	margin: 0 20px;
+	padding: 5px 0;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.vs_row {
+	display: flex;
+	border-radius: 8px;
+	background: white;
+	margin: 15px 20px;
+	border: 1px solid #cfcfcf;
+	box-shadow: 0 0 8px #cccccc;
+	overflow: hidden;
+	flex-direction: column;
+	position: relative;
+	color: black;
+}
+
+.vs_title {
+	display: flex;
+	font-size: 21px;
+	font-family: Roboto, sans-serif;
+	color: rgb(22, 60, 73);
+	font-weight: bold;
+	padding: 5px 0 5px 10px;
+	align-items: center;
+}
+
+/* #sheet_menu_slide_btn {
+	display: none;
+} */
+
+.handover_kpi_col {
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 10px;
+}
+
+.kpi_container {
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: center;
+}
+
+.kpi_title {
+	text-decoration: underline;
+}
+
+.handover_kpi {
+	border: none;
+	box-shadow: none;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding: 0;
+}
+
+th .qv-st-value-overflow {
+	font-weight: bold;
+}
+
+.qv-grid-object-scroll-area {
+	height: 90%;
+}
+
+div.scrollbar-animation {
+	height: 11px !important;
+	bottom: 0;
+}
+
+.qv-panel-sheet .sheet-title-container {
+	border-top: 5px solid #003358;
+	box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.15);
+	transition: box-shadow .4s ease-in-out;
+}
+
+.qv-object-content-container ul.lui-tabset li.lui-tab.lui-active {
+	padding-bottom: 1px;
+}
+
+.qv-object-content-container ul.lui-tabset li.lui-tab span.lui-tab__text {
+	background: #8e8e8c;
+	color: white;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	text-align: center;
+	padding-left: 0 !important;
+}
+
+.qv-object-content-container ul.lui-tabset li.lui-tab.lui-active span.lui-tab__text {
+	background: #003c66;
+	color: white;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	text-align: center;
+	padding-left: 0 !important;
+}
+
+.vs_container_row {
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.vs_container_col {
+	position: relative;
+}
+
+.vs_container_buttons {
+	width: 400px;
+	height: 40px;
+	margin: 10px;
+	font-size: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	justify-content: center;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.vs_container_buttons>* {
+	flex: 1 0 48%;
+	/* Set flex-basis to auto */
+	font-size: 16px;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: skewX(150deg);
+	transition: all 400ms;
+	cursor: pointer;
+	white-space: nowrap;
+	padding: 10px;
+}
+
+.vs_first_btn,
+.vs_second_btn {
+	background-color: #000;
+}
+
+.buttons_text {
+	transform: skew(-150deg);
+	user-select: none;
+}
+
+.active {
+	background-color: #22813b !important;
+	color: white !important;
+}
+
+/* Custom CSS End */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.vs_row {
+		margin: 15px 15px;
+	}
+
+	.col {
+		flex: 100%;
+		/* Full width on small screens */
+	}
+
+	.qv_object_container {
+		position: relative;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		z-index: 99;
+	}
+
+	.vs_qv_filters {
+		display: none;
+	}
+
+	#sheet_menu_slide_btn {
+		display: none;
+	}
+
+	#sheet_menu_slide_btn_mobile {
+		display: inline-block;
+		position: fixed;
+	}
+
+
+	.sheet-menu-container {
+		justify-content: center;
+	}
+
+	.sheet-menu-view {
+		left: -102%;
+		width: 100%;
+		height: fit-content;
+		padding: 15px 0;
+		border-top: 1px dotted #5f6e86;
+		box-shadow: 0px 9px 15px -9px rgba(0, 0, 0, 0.49);
+		transition: left 400ms ease-in-out;
+		overflow: hidden;
+	}
+
+	.visible {
+		left: 0;
+	}
+
+	.sheet_menu_visible {
+		position: sticky;
+		left: 0;
+		width: 100%;
+		top: 70px;
+		transition: width 400ms ease-in-out;
+		overflow-x: hidden;
+	}
+
+	.top-menu-element {
+		height: 40px;
+	}
+
+	.top-menu-element_label {
+		justify-content: center;
+	}
+
+	#CurrentSelections {
+		margin: 0 10px;
+		padding: 5px 0;
+	}
+
+	.vs_container_buttons {
+		width: calc(100% - 20px);
+	}
+
+	.vs_container_buttons>* {
+		font-size: 14px;
+	}
+
+	.handover_kpi {
+		flex: calc(50% - 20px);
+	}
+
+	.handover_kpi_col {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+
+	.kpi_container {
+		max-width: 130px;
+	}
+
+	#vs_qv_filter_container{
+		display: none;
+	}
+	.group_and_race_name {
+		padding-top: 45px;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.vs_row {
+		margin: 15px 10px;
+	}
+
+	.col {
+		flex: 50%;
+		/* Two columns on tablets */
+	}
+
+	.sheet-menu-view {
+		left: -102%;
+	}
+
+	.feather-menu {
+		display: inline-block;
+	}
+
+	.feather-x-square1 {
+		display: none;
+	}
+
+	.visible {
+		left: 0;
+	}
+
+	.sheet_menu_visible {
+		position: sticky;
+		left: 0;
+		width: 100%;
+		top: 70px;
+		transition: width 400ms ease-in-out;
+		overflow-x: hidden;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: transparent;
+		z-index: 99;
+	}
+
+	.handover_kpi {
+		flex: calc(33% - 20px);
+	}
+
+	.handover_kpi_col {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+}
+
+@media (min-width: 1025px) {
+	.col {
+		flex: 25%;
+		/* Four columns on laptops and larger screens */
+	}
+}
+
+/* Loader CSS */
+
+.ripple-container {
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 50;
+	background: #ffffffe0;
+	/* align-items: center; */
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.loader--ripple {
+	display: inline-block;
+	position: relative;
+	height: 64px;
+	width: 64px;
+	top: 450px; 
+}
+
+.loader--ripple div {
+	position: absolute;
+	animation: loader--ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+	border: 4px solid;
+	border-radius: 50%;
+	opacity: 1;
+}
+
+.loader--ripple div:nth-child(2) {
+	animation-delay: -0.5s;
+}
+
+@keyframes loader--ripple {
+	0% {
+		top: 28px;
+		left: 28px;
+		opacity: 1;
+		height: 0;
+		width: 0;
+	}
+
+	100% {
+		top: -1px;
+		left: -1px;
+		opacity: 0;
+		height: 58px;
+		width: 58px;
+	}
+
+}
+
+.loader--ripple div {
+	border-color: #13294b;
+}
+
+/* 2nd Page (Handicap Comparison) CSS */
+
+/* 3rd Page (Handicap Statistics) CSS */
+
+#player_statistics,
+#team_statistics {
+	position: relative;
+	width: 100%;
+}
+
+#player_ranking,
+#team_ranking {
+	/* box-sizing: border-box; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+
+#player_statistics,
+#player_ranking,
+#team_statistics,
+#team_ranking {
+	height: 500px;
+}
+
+#handicap_averages,
+#position_averages {
+	height: 350px;
+}
+
+/* 4th Page (Handicap Performance) CSS */
+
+#player_handicap_model,
+#team_handicap_model {
+	height: 400px;
+}
+
+#player_handicap_change,
+#team_handicap_change {
+	height: 500px;
+}
+
+/* STYLE C */
+.vs_switch {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	color: black;
+}
+
+.checkbox.style-c {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.checkbox.style-c input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkbox.style-c input:checked~.checkbox__checkmark {
+	background-color: #13294b;
+}
+
+.checkbox.style-c input:checked~.checkbox__checkmark:after {
+	opacity: 1;
+}
+
+.checkbox.style-c:hover input~.checkbox__checkmark {
+	background-color: #d5d3d3;
+}
+
+.checkbox.style-c:hover input:checked~.checkbox__checkmark {
+	background-color: #13294b;
+}
+
+.checkbox.style-c .checkbox__checkmark {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	background-color: #c3c1c1;
+	transition: background-color 0.25s ease;
+	border-radius: 4px;
+}
+
+.checkbox.style-c .checkbox__checkmark:after {
+	content: "";
+	position: absolute;
+	left: 8px;
+	top: 4px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+	transition: opacity 0.25s ease;
+	box-sizing: border-box;
+}
+
+.checkbox.style-c .checkbox__body {
+	color: rgb(0, 0, 0);
+	line-height: 1.4;
+	font-size: 16px;
+	margin-left: 25px;
+}
+
+.checkboxes_container {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	white-space: nowrap;
+}
+
+.dim_toggle_popup {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.dim_popup {
+	height: 0;
+	box-shadow: 0 0 8px #cccccc;
+	border-radius: 8px;
+	position: absolute;
+	top: 40px;
+	z-index: 50;
+	background: white;
+	overflow: auto;
+	transition: height 0.3s ease;
+	/* Add transition effect on height property */
+}
+
+
+/* WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #c1c1c1;
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #989898;
+}
+
+::-webkit-scrollbar-corner {
+	background-color: #f0f0f0;
+}
+
+.graph_type_toggle {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 42px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	border-radius: 50px;
+	overflow: hidden;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background-color: #cccccc;
+	transition: background-color ease 0.3s;
+	margin: 10px;
+}
+
+.graph_type_toggle:before {
+	/* content: "on off"; */
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 2;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	left: 2px;
+	top: 2px;
+	border-radius: 50%;
+	font: 10px/28px Helvetica;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-indent: -22px;
+	word-spacing: 37px;
+	color: #fff;
+	text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
+	white-space: nowrap;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.graph_type_toggle:checked {
+	background-color: #13294b;
+}
+
+.graph_type_toggle:checked:before {
+	left: 24px;
+}
+
+
+.vs_current_selections {
+	display: flex;
+	margin: 0 10px;
+}
+
+.vs_current_selections .selections_container {
+	height: 38px;
+	display: flex;
+	align-items: center;
+	color: #8c8c8c;
+	font-size: 15px;
+}
+
+.vs_selection_item {
+	display: flex;
+	align-items: center;
+	height: 36px;
+	background-color: #404040;
+	color: white;
+	border-radius: 50px;
+	padding: 0 5px;
+	white-space: nowrap;
+	margin-right: 2px
+}
+
+.vs_sel_content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+    user-select: none;
+}
+
+.vs_field_name {
+	font-size: 11px;
+}
+
+.vs_field_value {
+	font-size: 14px;
+}
+
+.vs_sel_clear_btn {
+	display: flex;
+	padding: 11px 5px 11px 10px;
+	cursor: pointer;
+	color: #8c8c8c;
+}
+
+.vs_sel_clear_btn:hover {
+	color: #f1f1f1;
+}
+
+.vs_sel_clear_btn .lui-icon--remove {
+	font-size: 14px;
+}
+
+/* .vs_sel_clear_btn{
+	display: none;
+} */
+
+/* Vs Custom Listbox */
+
+/* .vs_listbox {
+	
+} */
+
+.vs_listbox_container {
+	display: flex;
+	width: 234px;
+	height: 332px;
+	box-shadow: 0 0 8px #cccccc;
+	border-radius: 4px;
+	position: absolute;
+	top: 40px;
+	z-index: 50;
+	background: white;
+	overflow: auto;
+	transition: height 0.3s ease;
+	flex-direction: column;
+}
+
+.vs_listbox_container .vs_listbox_toolbar {
+	display: flex;
+	height: 44px;
+	align-items: center;
+	justify-content: flex-end;
+	margin-right: 5px;
+}
+
+.vs_listbox_container .vs_listbox_toolbar span.lui-icon {
+	display: flex;
+	padding: 4px 5px;
+	width: 23px;
+	height: 22px;
+	align-items: center;
+	justify-content: center;
+}
+
+.vs_listbox_container .vs_listbox_toolbar span.lui-icon:hover {
+	cursor: pointer;
+	background-color: #f4f3f3;
+}
+
+.vs_listbox_container .vs_listbox_toolbar .vs_saperator {
+	border-right: 1px solid #d9d9d9;
+	height: 30px;
+	margin: 5px 5px;
+}
+
+.vs_listbox_container .vs_listbox_search_container {
+	border-bottom: 1px solid #d9d9d9;
+	border-top: 1px solid #d9d9d9;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.vs_listbox_container .vs_listbox_search_container .vs_listbox_searchbox {
+	border-radius: 5px;
+	display: flex;
+}
+
+.vs_listbox_container .vs_listbox_search_container .vs_listbox_searchbox input[type="text"] {
+	border: none;
+	width: 182px;
+	height: 38px;
+	background-color: #efefef;
+	display: flex;
+	font-family: var(--font-family) !important;
+}
+
+#vs_listbox_search_clearIcon {
+	width: 32px;
+	height: 38px;
+	background: #efefef;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0 5px 5px 0;
+}
+
+.vs_listbox_container .vs_listbox_searchbox span.lui-icon--search {
+	width: 32px;
+	height: 38px;
+	background: #efefef;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vs_listbox_container .vs_listbox_searchbox span.lui-icon--search {
+	border-radius: 5px 0 0 5px;
+}
+
+.vs_listbox_container .vs_listbox_searchbox span.lui-icon--close {
+	cursor: pointer;
+	visibility: hidden;
+}
+
+.vs_listbox_searchbox:hover {
+	box-shadow: 0px 0px 0 2px #13294b;
+}
+
+.vs_listbox_items_area {
+	overflow: auto;
+	padding: 3px 0 3px 10px;
+}
+
+.vs_listbox_items li.vs_listbox_item {
+	list-style: none;
+	font-family: var(--font-family);
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 5px;
+	cursor: pointer;
+	border-bottom: 1px solid #ddd;
+	user-select: none;
+	transition: opacity 0.05s ease-in-out;
+}
+
+.vs_listbox_item_value {
+	overflow: hidden;
+	padding-left: 6px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.vs_listbox_item_value_checked {
+	width: 26px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	min-width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 2px;
+	visibility: hidden;
+}
+
+.vs_listbox_item_selected {
+	background-color: #13294b !important;
+	color: white !important;
+	border-bottom: none !important;
+}
+
+.vs_listbox_item_alternative {
+	background-color: #ddd !important;
+	border-bottom: 1px solid #fff !important;
+}
+
+
+/* Race Insights CSS Start */
+.race_name,
+.race_time {
+	padding-left: 10px;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.race_time {
+	font-size: 20px;
+	padding: 0;
+}
+
+.view_report {
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	background: #000;
+	color: white;
+	font-size: 17px;
+	font-family: var(--font-family) !important;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.race_details {
+	padding: 10px;
+	color: black;
+	font-size: 13px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	/* Two columns */
+	gap: 10px;
+	/* Spacing between items */
+}
+
+.race_detail_item {
+	display: flex;
+	margin-right: 5px;
+}
+
+.race_item_title {
+	margin-right: 5px;
+	font-weight: bold;
+}
+
+.player_details_container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.player_details_items {
+	background: white;
+	padding: 10px;
+	border-radius: 8px;
+	display: grid;
+}
+
+.video_container {
+	width: 60%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.player_details {
+	display: flex;
+	margin-bottom: 25px;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.player_metadata {
+	display: flex;
+	padding-left: 25px;
+	margin-top: 5px;
+}
+
+.player_metadata .player_metadata_title {
+	margin-right: 10px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.player_metadata .player_metadata_value {
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+.player_name_silk {
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+.player_name_silk img {
+	width: 24px;
+	height: 18px;
+	margin-right: 5px;
+}
+
+.player_name_silk div {
+	font-size: 16px;
+}
+
+.full_race_video,
+.final_furlong_video {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.full_race_icon,
+.final_furlong_icon {
+	height: 20px;
+	margin-left: 5px;
+}
+
+.qv_object_container {
+	position: relative;
+}
+
+.race_insight_details {
+	/* position: absolute;
+	top: -15px; */
+	color: black;
+	display: none;
+	flex-direction: column;
+}
+
+/* .qv_objects {
+	display: none;
+} */
+
+.back_to_selection {
+	display: flex;
+	align-items: center;
+	margin: 5px 0 0 20px;
+	color: black;
+	font-size: 15px;
+	position: absolute;
+	left: 0;
+	background-color: #fff;
+	box-shadow: 2px 2px 5px 0px #cfcfcf;
+	border: 1px solid #b9b9b9;
+	border-radius: 4px;
+	padding-right: 5px;
+	cursor: pointer;
+}
+
+.back_to_selection:before {
+	content: "";
+	height: 15px;
+	width: 16px;
+	position: absolute;
+	top: -1px;
+	left: -10px;
+	background-color: #fff;
+	transform: skew(-35deg);
+	border-top: 1px solid #b9b9b9;
+	border-left: 1px solid #b9b9b9;
+}
+
+.back_to_selection:after {
+	content: "";
+	height: 15px;
+	width: 16px;
+	position: absolute;
+	top: 15px;
+	left: -10px;
+	background-color: #fff;
+	transform: skew(35deg);
+	border-bottom: 1px solid #b9b9b9;
+	border-left: 1px solid #b9b9b9;
+}
+
+.group_and_race_name {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0 0 20px;
+	align-items: center;
+}
+
+.group_and_race_name .race_group_name {
+	font-size: 21px;
+	font-weight: bold;
+}
+
+#vs_race_report {
+	/* height: 800px; */
+	overflow: auto;
+	margin: 10px;
+}
+
+#vs_duration_sectional,
+#vs_duration_overall,
+#vs_distance,
+#vs_max_speed,
+#vs_avg_speed,
+#vs_detailed_speed,
+#vs_duration_sectional_tab,
+#vs_duration_overall_tab,
+#vs_distance_tab,
+#vs_max_speed_tab,
+#vs_avg_speed_tab,
+.rankings_graph_item,
+.rankings_table_item {
+	height: 470px;
+}
+
+.selection_container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.switch_btns_container {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.race_sectionals_toolbox {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* .sectionals_graph_item,
+.sectionals_table_item, */
+.rankings_graph_item,
+.rankings_table_item {
+	display: none;
+}
+
+#vs_duration_sectional,
+#vs_duration_sectional_tab,
+#vs_sectional,
+#vs_sectional_tab {
+	display: flex;
+}
+
+.dim_toggle_popup .vs_switch label {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.detailed_speed {
+	display: none;
+}
+
+.furlong_videos_container {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 15px;
+}
+
+.furlong_videos_container .video_icons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.video_url img, #echart{
+	background: #ffffff;
+	border-radius: 50%;
+}
+
+.video_url img:hover, #echart:hover {
+	background: #d9d9d9;
+}
+
+/* Videos Pop up Dialog Box */
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.furlong_videos_popup {
+	margin: 70px;
+	/* padding: 20px; */
+	background: #fff;
+	border-radius: 5px;
+	/* width: 30%; */
+	position: relative;
+	/* transition: all 2s ease-in-out; */
+}
+
+.furlong_videos_popup .furlong_close {
+	position: absolute;
+	top: -30px;
+	right: -25px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ccc;
+}
+
+.furlong_videos_popup .furlong_close:hover {
+	color: #fff;
+}
+
+.furlong_videos_popup .content {
+	max-height: 30%;
+	overflow: auto;
+}
+
+.selection_bar_btns {
+	display: none;
+}
+
+.link_trainer:hover,
+.link_horse:hover {
+	text-decoration: underline;
+	cursor: pointer;
+	color: #d11f25;
+	/* font-weight: bold; */
+}
+
+.recent_results_toggle_popup {
+	margin-top: 10px;
+}
+
+.recent_results_dim_popup {
+    margin-left: 10px;
+    overflow: hidden;
+    height: 70px;
+    display: none;
+    position: static;
+    width: fit-content;
+    /* border: 1px solid #b3b3b3; */
+}
+
+.recent_results_btn_container {
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	/* margin-bottom: 10px; */
+	width: 840px;
+	align-items: center;
+}
+
+.recent_results_btn_container .button_item {
+	display: flex;
+	flex: 1 0 14%;
+	justify-content: center;
+}
+
+.recent_results_btn_container label {
+	border: 1px solid #fff;
+	padding: 6px 12px;
+	cursor: pointer;
+	color: #fff;
+	background-color: #000;
+	transition: all 0.2s;
+	min-width: 90px;
+	max-height: 25px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.recent_results_btn_container label:not(:first-of-type) {
+	border-left: 0;
+}
+
+.recent_results_btn_container label:hover {
+	background-color: #666;
+}
+
+/* Hide the radio button */
+input[name='market'] {
+	display: none;
+}
+
+/* The checked buttons label style */
+input[name='market']:checked+label {
+	background-color: #22813b;
+}
+
+.race_cards_container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.race_card {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	box-shadow: 0 0 8px #cccccc;
+	background: #ddd;
+	border-radius: 8px;
+	width: 350px;
+}
+
+.race_header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px;
+}
+
+#vs_qv_filter_container {
+	height: 45px;
+	width: 100%;
+	padding: 10px;
+}
+
+.vs_qv_filters {
+	display: flex;
+}
+
+.timeseries_btns,
+.course_time_switch_btns {
+	display: flex;
+	margin-left: 10px;
+	box-shadow: 0 0 8px #cccccc;
+}
+
+.course_time_switch_btns {
+	height: 32px;
+	margin-top: 10px;
+	border: 1px solid #22813b;
+}
+
+.timeseries_btns button,
+.course_time_switch_btns a {
+	border: none;
+	cursor: pointer;
+	background: white;
+	color: black;
+	padding: 2px;
+	font-size: 13px;
+	width: 81px;
+}
+
+.course_time_switch_btns a {
+	width: 60px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.timeseries_btns button:hover,
+.course_time_switch_btns a:hover {
+	background-color: #13294b;
+	color: white;
+}
+
+[data-tooltip]:hover::after {
+	display: block;
+	position: absolute;
+	content: attr(data-tooltip);
+	border: 1px solid black;
+	background: #eee;
+	padding: .25em;
+}
+
+#vs_race_line_graph{
+	height: 700px;
+}
+
+#vs_race_line_table{
+	height: 400px;
+}
+
+#todays_results_toggle, #search_results_toggle{
+	display: none;
+}
+
+#echart{
+	margin-left: 5px;
+    cursor: pointer;
+}
+
+#vs_race_sectionals_timing_graph{
+	height: 900px;
+}
+
+
+#vs_race_sectionals_timing_graph_dropdown {
+    height: 35px;
+    width: 250px;
+    margin: 0 5px;
+}
+
+/* Tabbed Container CSS */
+
+.tabContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabContent {
+    padding: 10px;
+    text-align: left;
+    min-height: 200px;
+    color: black;
+}
+
+/* Hide all but first tab */
+.tabContent>div:not(:first-child) {
+    display: none;
+}
+
+.tabContainer>.tabs {
+    margin-left: 10px;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid #cdcccb;
+}
+
+.tabs li {
+    float: left;
+    display: flex;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.tabs a {
+    position: relative;
+    background: black;
+    border-top: 3px solid rgba(0, 0, 0, 0);
+    padding: 1em .5em;
+    float: left;
+    text-decoration: none;
+    color: #888;
+    margin: 0 .1em 0 0;
+    font-size: 1em;
+    flex: 1;
+    transition: all .35s ease;
+    color: white;
+    font-weight: bold;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.tabs a.tabs_active {
+    color: white;
+    background: #22813b;
+}
+
+/* Tabbed Container CSS */
+
+#vs_sectional_dim_dropdown{
+	width: 180px;
+	height: 35px;
+}

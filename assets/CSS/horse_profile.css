@@ -1,0 +1,260 @@
+.vs_horse_filters {
+    display: flex;
+}
+
+.vs_horse_profile_filters {
+    height: 45px;
+}
+
+.vs_horse_details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vs_horse_details_first_col, .vs_horse_details_second_col{
+    display: flex;
+    padding: 15px;
+}
+
+.vs_horse_silk{
+    margin-right: 20px;
+}
+
+.vs_horse_name{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.vs_horse_name span{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.vs_horse_age{
+    font-weight: bold;
+}
+
+.vs_horse_age span{
+    font-weight: normal;
+}
+
+.vs_horse_TOB_details{
+    margin-right: 40px;
+}
+
+.vs_horse_TOB, .vs_horse_SDD{
+    font-weight: bold;
+    text-align: left;
+}
+
+.vs_horse_TOB span, .vs_horse_SDD span{
+    font-weight: normal;
+}
+
+#vs_horse_form_switch{
+    height: 40px;
+    width: 200px;
+}
+
+#vs_horse_form{
+    height: 400px;
+}
+
+#vs_duration_sectional_horse,
+#vs_duration_overall_horse,
+#vs_distance_horse,
+#vs_max_speed_horse,
+#vs_avg_speed_horse,
+#vs_detailed_speed_horse,
+#vs_duration_sectional_horse_tab,
+#vs_duration_overall_horse_tab,
+#vs_distance_horse_tab,
+#vs_max_speed_horse_tab,
+#vs_avg_speed_horse_tab,
+#vs_sectional_horse, #vs_sectional_tab_horse
+ {
+	height: 470px;
+}
+
+.horse_sectionals_graph{
+    height: 500px;
+}
+
+.horse_sectionals_table{
+    height: 200px;
+}
+
+#vs_duration_sectional_horse,
+#vs_duration_sectional_horse_tab {
+	display: flex;
+}
+
+
+.vs_horse_load_more{
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.vs_horse_load_more span{
+    background: #22813b;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.vs_horse_load_more span:hover{
+    background: #268f42;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.horse_view_report {
+	padding: 10px;
+    height: 40px;
+	background: #000;
+	color: white;
+	font-size: 17px;
+	font-family: var(--font-family) !important;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+    margin-right: 10px;
+}
+
+.vs_horse_silk{
+    width: 49px;
+}
+
+.horse_details {
+	/* position: absolute;
+	top: -15px; */
+	color: black;
+	display: none;
+	flex-direction: column;
+}
+
+#vs_horse_form_race_type, #vs_horse_form_course {
+    height: 300px;
+}
+
+#vs_duration_sectional_horse,
+#vs_duration_sectional_tab_horse,
+#vs_sectional_horse,#vs_sectional_tab_horse {
+    display: flex;
+}
+
+
+#vs_horse_form_course{
+    display: none;
+}
+
+.vs_horse_cards_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.vs_horse_details {
+    flex: 1 0 18%; /* Here 18% is approximately 100%/5 (for 5 cards). Adjust this value as per your requirement. */
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background: white;
+    margin: 10px 10px;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 0 8px #cccccc;
+    overflow: hidden;
+    flex-direction: column;
+    max-width: 422px;
+}
+
+.recent_results_toggle_popup{
+    margin-top: 10px;
+}
+.recent_results_dim_popup{
+    margin-left: 10px;
+    overflow: hidden;
+    /* border: 1px solid #b3b3b3; */
+}
+
+.recent_results_btn_container {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* margin-bottom: 10px; */
+    width: 840px;
+    align-items: center;
+}
+
+.recent_results_btn_container .button_item {
+    display: flex;
+    flex: 1 0 14%; 
+    justify-content: center;
+}
+
+.recent_results_btn_container label {
+    border: 1px solid #fff;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+    transition: all 0.2s;
+    min-width: 90px;
+    max-height: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.recent_results_btn_container label:not(:first-of-type) {
+    border-left: 0;
+}
+
+.recent_results_btn_container label:hover {
+    background-color: #666;
+}
+
+/* Hide the radio button */
+input[name='market'] {
+    display: none;
+}
+
+/* The checked buttons label style */
+input[name='market']:checked+label {
+    background-color: #22813b;
+}
+
+@media (max-width: 768px) {
+
+    .vs_horse_details {
+        flex: auto;
+    }
+    
+    .vs_horse_profile_filters{
+        display: none;
+    }
+
+}
+
+.horse_form {
+    height: 250px
+}
+
+#vs_recent_form{
+    height: auto;
+}
+
+.vs_horse_card_container {
+    display: flex;
+    justify-content: center;
+}
+
+.vs_horse_card_container .horse_view_report{ 
+    display: none;
+}

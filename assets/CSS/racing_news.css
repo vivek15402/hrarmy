@@ -1,0 +1,137 @@
+.vs_content{
+    color: black;
+}
+
+.vs_racing_news_heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.vs_racing_cards_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.vs_racing_news_details {
+    flex: 1 0 33%;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background: white;
+    margin: 10px 10px;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 0 8px #cccccc;
+    overflow: hidden;
+    flex-direction: column;
+    max-width: 345px;
+    min-width: 345px;
+    cursor: pointer;
+    max-height: 332px;
+}
+
+.vs_racing_news_details div {
+    text-align: left;
+}
+
+.vs_racing_news_title {
+    font-size: 18px;
+    color: #13294b;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.vs_racing_news_title:hover {
+    color: #d11f25;
+}
+
+.vs_racing_news_date{
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.loading {
+    position: relative;
+    background: #b8b8b8;
+}
+
+.loading:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100px);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: loading 0.8s infinite;
+}
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.vs_news_detailed_container, #back_to_news_section{
+    display: none;
+    margin-top: 10px;
+}
+.vs_news_detailed_container {
+    display: flex;
+    justify-content: center;
+}
+.vs_racing_card_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+    max-width: 50%;
+}
+
+.vs_racing_card_container p{
+    line-height: 30px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+
+    figure {
+        width: 100%;
+    }
+
+    .vs_racing_card_container {
+        max-width: 90%;
+        margin-top: 40px;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+}
+
+@media (min-width: 1025px) {
+
+}
+
+.vs_racing_news_image {
+    overflow: hidden;
+    width: 345px; /* Set the desired width */
+    height: 197px;
+}
+
+.zoom_image {
+    width: 100%;
+    height: 197px;
+    transition: transform 0.5s ease;
+}
+
+.vs_racing_news_image:hover .zoom_image {
+    transform: scale(1.2);
+}

@@ -1,0 +1,13 @@
+.vs_horse_details_first_col, .vs_horse_details_second_col{
+    display: flex;
+}
+
+.vs_horse_TOB_details{
+    display: flex;
+    margin: 0;
+}
+
+.vs_horse_TOB, .vs_horse_SDD {
+    display: block;
+    margin-right: 33px;
+}

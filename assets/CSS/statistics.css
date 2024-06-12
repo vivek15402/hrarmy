@@ -1,0 +1,61 @@
+/* Tabbed Container CSS */
+
+.tabContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabContent {
+    padding: 10px;
+    text-align: left;
+    min-height: 200px;
+    color: black;
+}
+
+/* Hide all but first tab */
+.tabContent>div:not(:first-child) {
+    display: none;
+}
+
+.tabContainer>.tabs {
+    margin-left: 10px;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid #cdcccb;
+}
+
+.tabs li {
+    float: left;
+    display: flex;
+    flex: 1;
+    white-space: nowrap;
+}
+
+.tabs a {
+    position: relative;
+    background: black;
+    border-top: 3px solid rgba(0, 0, 0, 0);
+    padding: 1em .5em;
+    float: left;
+    text-decoration: none;
+    color: #888;
+    margin: 0 .1em 0 0;
+    font-size: 1em;
+    flex: 1;
+    transition: all .35s ease;
+    color: white;
+    font-weight: bold;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.tabs a.tabs_active {
+    color: white;
+    background: #22813b;
+}
+
+/* Tabbed Container CSS */
+
+#statistics_cont1 .qvobject {
+    height: 750px;
+}

@@ -1,0 +1,328 @@
+:root {
+    --font-family: 'roboto', sans-serif;
+}
+
+/* All QS Objects */
+.qv-object-header {
+    display: none !important;
+}
+
+/* CurrentSelection Bar Custom CSS Start */
+
+.qv-subtoolbar-button {
+    font-family: var(--font-family) !important;
+}
+
+.qv-explore-selections-btn {
+    display: none !important;
+}
+
+.qv-selections-pager .buttons {
+    display: none !important;
+}
+
+.qv-panel-current-selections {
+    min-height: 30px !important;
+}
+
+.qv-panel-current-selections .buttons {
+    border: none !important;
+}
+
+.qv-panel-current-selections .qv-pager,
+.qv-selections-pager {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    height: fit-content !important;
+    margin: auto !important;
+}
+
+.qv-panel-current-selections .qv-pager li {
+    border-radius: 50px !important;
+    color: #d9d9d9 !important;
+    font-size: 11px !important;
+    background: #404040 !important;
+    font-family: var(--font-family) !important;
+    padding: 3px 5px;
+}
+
+.qv-panel-current-selections .qv-pager li span.values {
+    width: fit-content !important;
+    padding-right: 30px !important;
+}
+
+.qv-panel-current-selections .qv-pager li span.values span {
+    color: white !important;
+    font-size: 14px !important;
+    font-family: var(--font-family) !important;
+}
+
+.touch-off .bright.qv-panel-current-selections .remove:hover {
+    color: white !important;
+}
+
+.current-selections-item .current-selection-item-text:focus {
+    box-shadow: none;
+}
+
+/* Filters Custom CSS Start */
+
+.qv-state-count-bar {
+    display: none !important;
+}
+
+.qv-collapsed-listbox {
+    box-shadow: 0 0 8px #cccccc !important;
+    border-radius: 8px !important;
+}
+
+.title-wrapper::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('../Images/search-for-filter.svg') center center no-repeat;
+}
+
+.title-wrapper::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 10px;
+    background: url('../Images/arrow-down.svg') center center no-repeat;
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
+.qv-filterpane-collapsed:focus {
+    box-shadow: none !important;
+}
+
+.qv-object-listbox .qv-listbox-text-value,
+.qv-object-listbox .lui-search__input {
+    font-size: 14px !important;
+    font-family: var(--font-family) !important;
+}
+
+.lui-popover {
+    box-shadow: 0 0 8px #cccccc !important;
+    border: none !important;
+}
+
+.sel-toolbar-btn {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.sel-toolbar-btn .sel-toolbar-span-icon::before {
+    color: black !important;
+}
+
+.sel-toolbar-list-item,
+.sel-toolbar-btn {
+    width: 23px !important;
+}
+
+.sel-toolbar-list-item:hover {
+    background-color: #f7f7f7;
+}
+
+.sel-toolbar-list-item:active {
+    background-color: #e5e5e5;
+}
+
+.sel-toolbar-list li:first-of-type {
+    padding-left: 4px !important;
+}
+
+.lui-search {
+    background-color: #efefef !important;
+    margin: 10px !important;
+    border-radius: 5px !important;
+}
+
+.qv-listbox-scroll-area {
+    padding: 3px 10px !important;
+}
+
+.scrollbar-animation {
+    opacity: 1 !important;
+    width: 10px !important;
+}
+
+.qv-listbox .serverLocked,
+.qv-listbox .serverSelected,
+.qv-listbox li.selected {
+    background-color: #13294b !important;
+    border-bottom: 1px solid #2a5aa2 !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+}
+
+.qv-listbox li:focus {
+    box-shadow: none !important;
+}
+
+.qv-listbox-wrapper.searchActive {
+    height: calc(100% - 70px) !important;
+}
+
+.lui-icon--unlock {
+    padding-left: 0 !important;
+}
+
+/* Filters Custom CSS End */
+
+/* QS KPI Object CSS Start */
+
+.sn-kpi-measure-wrapper {
+    font-size: 13px !important;
+    text-decoration: underline !important;
+}
+
+.sn-kpi-value {
+    font-size: 32px !important;
+    font-weight: bold !important;
+}
+
+/* QS KPI Object CSS End */
+
+/* QS Table Object CSS Start */
+
+/* First Column aligning to left */
+
+/* thead tr{
+    background-color: #362f4b !important;
+    color: white !important;
+} */
+
+/* thead tr th div {
+    color: white !important;
+} */
+
+tbody tr td:first-child div,
+thead tr th:first-child div {
+    text-align: left !important;
+}
+
+/* .qv-st-sorting-indicator{
+    color: white !important;
+} */
+/* Rest all values */
+.qv-st-value {
+    text-align: center !important;
+    font-size: 13px !important;
+    color: black !important;
+    cursor: pointer !important;
+}
+
+/* Row Styles */
+tbody tr:nth-child(odd) {
+    background-color: #fafafa !important;
+    /* Striped background color for even rows */
+}
+
+/* Cell Styles */
+tbody tr td {
+    padding: 7px 5px !important;
+}
+
+/* Hover Effect */
+tbody tr:hover {
+    background-color: #e0e0e0 !important;
+    /* Hover effect background color */
+}
+
+/* QS Table Object CSS End */
+
+.sn-kpi-measure-wrapper {
+    display: none !important;
+}
+
+td[style*="background-color: rgb(128, 0, 0);"] {
+    background-color: #cc6677 !important;
+}
+
+td[style*="    background-color: rgb(0, 128, 0);"] {
+    background-color: #05b105 !important;
+}
+
+td[style*="background-color: rgb(128, 0, 0);"] span {
+    color: white !important;
+}
+
+td[style*="background-color: rgb(0, 128, 0);"] span {
+    color: white !important;
+}
+
+.kpi_container1 .sn-kpi-value-wrapper {
+    justify-content: flex-start !important;
+}
+
+.kpi_container2 .sn-kpi-value-wrapper {
+    justify-content: flex-end !important;
+}
+
+/* QV table CSS Start */
+
+.vs_custom_table .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-family: 'roboto';
+}
+
+.vs_custom_table thead {
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    color: white;
+    z-index: 1;
+}
+
+.vs_custom_table thead::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    /* Add your desired border style */
+}
+
+.vs_custom_table th,
+.vs_custom_table td {
+    white-space: nowrap;
+    padding: 2px 10px 2px 10px;
+    text-align: center;
+    color: black;
+}
+
+.vs_custom_table td {
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+}
+
+.vs_custom_table tr:nth-child(odd) td {
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.vs_custom_table tr:nth-child(even) td {
+    background: #dde4ea;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.vs_custom_table tr:hover:nth-child(odd) td {
+    background-color: #e0e0e0 !important;
+}
+
+/* VS Table CSS End */
+
+/* QS Pivot Table Button Hide */
+.qv-pt .meta * {
+    display: none !important
+}

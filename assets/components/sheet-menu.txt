@@ -1,0 +1,35 @@
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./racing_news.html">
+        <span class="top-menu-element_label-truncate">News</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./Race-Insight.html">
+        <span class="top-menu-element_label-truncate">Race Insight</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./horse_profile.html">
+        <span class="top-menu-element_label-truncate">Horse Profile</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./trainer_profile.html">
+        <span class="top-menu-element_label-truncate">Trainer Profile</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./jockey_profile.html">
+        <span class="top-menu-element_label-truncate">Jockey Profile</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./sectionals.html">
+        <span class="top-menu-element_label-truncate">Sectionals</span>
+    </a>
+</div>
+<div class="top-menu-element">
+    <a class="top-menu-element_label" href="./statistics.html">
+        <span class="top-menu-element_label-truncate">Statistics</span>
+    </a>
+</div>

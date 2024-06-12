@@ -1,0 +1,2 @@
+<span class="row_toggle iminimize"><img src="./assets/Images/minimize.svg" alt="Icon"></span>
+<span class="row_toggle imaximize"><img src="./assets/Images/maximize.svg" alt="Icon"></span>
