@@ -326,7 +326,7 @@ require(["js/qlik"], function (qlik) {
 
 	// $('.ripple-container').show()
 
-	app = qlik.openApp('0c725b7d-d22a-431f-93a5-cd6590bc51b5', config);
+	app = qlik.openApp('eca3835b-f5f2-4e04-9061-d2e5476eeae7', config);
 	//qlik.theme.apply('VS_Theme');
 
 	clear_All()
